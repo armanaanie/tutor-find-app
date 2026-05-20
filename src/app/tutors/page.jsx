@@ -6,13 +6,13 @@ const res= await fetch("http://localhost:5000/tutors")
 const tutors= await res.json()
 console.log(tutors)
     return (
-        <div><h1 className="text-center text-2xl font-bold">Tutor</h1><div className="grid  grid-cols-2 lg:grid-cols-3 gap-4">
+        <div><h1 className="text-center text-2xl my-5 font-bold">All Tutor</h1><div className="grid  grid-cols-2 lg:grid-cols-3 gap-4">
             {
                 tutors.map(tutor=><div className="card bg-base-100  shadow-sm" key={tutor?._id}>
   <figure className="h-50">
     <img
       src={tutor?.image}
-      alt="tutor image" className=" object-top" />
+      alt="tutor image" className=" " />
   </figure>
   <div className="card-body">
      <span className={`badge badge-s ${tutor.subject==="ICT"?"bg-blue-200":tutor.subject==="English"?"bg-amber-200":tutor.subject==="Chemistry"?"bg-green-200":tutor.subject==="Mathematics"?"bg-red-200":tutor.subject==="Biology"?"bg-orange-200":"bg-purple-200"}`}>{tutor?.subject}</span>

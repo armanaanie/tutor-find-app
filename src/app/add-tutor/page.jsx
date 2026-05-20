@@ -8,7 +8,7 @@ import { Button } from '@heroui/react';
 
 const AddTutorPage = () => {
   const onSubmit=async(e)=>{
-    e.preventDefault()
+  
     const formData=new FormData(e.currentTarget)
     const tutor= Object.fromEntries(formData.entries())
     console.log(tutor)
@@ -18,7 +18,17 @@ const AddTutorPage = () => {
       body:JSON.stringify(tutor)
     })
     const data= await res.json();
-   if(data.insertedId){
+      const tutorData = {
+    ...data,
+
+    
+    sessionDate: selectedDate,
+
+   
+    slot: Number(data.slot),
+  };
+
+   if(tutorData.insertedId){
     toast.success("Tutor added successfully")
    }
 
@@ -213,7 +223,7 @@ const AddTutorPage = () => {
               Session Start Date
             </label>
 
-            <DatePicker
+            <DatePicker name="sessionDate"
               selected={selectedDate}
               onChange={(date) => setSelectedDate(date)}
               showIcon
