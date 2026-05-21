@@ -4,7 +4,7 @@ import { TiSocialFacebook } from 'react-icons/ti';
 
 const Footer = () => {
     return (<div>
-        <footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10">
+        <footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10 border-t-2 shadow-sm">
   <nav>
     <h6 className="footer-title">Services</h6>
     <a className="link link-hover">Tutor Search & Discovery</a>

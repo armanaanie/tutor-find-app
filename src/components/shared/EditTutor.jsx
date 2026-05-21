@@ -5,6 +5,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { toast } from 'react-toastify';
 import { Button } from '@heroui/react';
 import { Modal, Surface} from "@heroui/react";
+import DatePicker from 'react-datepicker';
+import { useState } from 'react';
 
 
 
@@ -43,7 +45,7 @@ export function EditTutor({tutor}) {
       console.log(tutorData)
       }
 
-   
+    const [selectedDate, setSelectedDate] = useState(new Date());
   return (
     <Modal>
       <Button variant="secondary">Edit</Button>
@@ -241,13 +243,14 @@ export function EditTutor({tutor}) {
                               Session Start Date
                             </label>
                 
-                            <input name="sessionDate"
-                            type='date'
-                            defaultValue={tutor.sessionDate?new Date(tutor.sessionDate):""}
-                              
-                             
-                              className="input input-bordered w-full"
-                            />
+                            <DatePicker name="sessionDate"
+                                         selected={selectedDate}
+                                         onChange={(date) => setSelectedDate(date)}
+                                         showIcon
+                                         toggleCalendarOnIconClick
+                                         dateFormat="dd/MM/yyyy"
+                                         className="input input-bordered w-full"
+                                       />
                           </div>
                         </div>
                 
