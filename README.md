@@ -14,7 +14,7 @@ A full-stack web application that connects students with tutors for seamless onl
 - ⚡ Real-time API integration
 - 🛡️ Protected routes with JWT/session handling
 
----
+
 
 ## 🛠️ Tech Stack
 
