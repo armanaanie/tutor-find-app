@@ -21,7 +21,7 @@ const FilterByDate = () => {
     if (finalStart) params.set("startDate", finalStart);
     if (finalEnd) params.set("endDate", finalEnd);
 
-    router.push(`${process.env.NEXT_PUBLIC_SERVER_URL}/tutors?${params.toString()}`);
+    router.push(`/tutors?${params.toString()}`);
   };
 
   
