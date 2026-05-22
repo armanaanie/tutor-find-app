@@ -13,7 +13,7 @@ const router = useRouter();
     const params = new URLSearchParams();
     const finalSearch = next.search ?? search;
     if (finalSearch) params.set("search", finalSearch);
-    router.push(`/tutors?${params.toString()}`);
+    router.push(`${process.env.NEXT_PUBLIC_SERVER_URL}/tutors?${params.toString()}`);
     
   };
   const handleSearch = () => {

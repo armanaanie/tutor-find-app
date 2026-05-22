@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import {AlertDialog, Button} from "@heroui/react";
 import { router } from "better-auth/api";
 
@@ -7,9 +8,16 @@ import { toast } from "react-toastify";
 
 export function DeleteAlert({bookingId}) {
     const handleCancelBooking=async()=>{
-        const res= await fetch(`http://localhost:5000/bookings/${bookingId}`,{
-          method:"PATCH",
-            cache: "no-store",
+      const {data:tokenData}=await authClient.token();
+      console.log(tokenData)
+        const res= await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/bookings/${bookingId}`,{
+           method:"PATCH",
+          headers:{
+            'content-type':"application/json",
+authorization:`Bearer ${tokenData?.token}`
+          },
+         
+            
         });
         const data=await res.json();
         console.log(data);
@@ -17,8 +25,7 @@ if (data.success) {
 
         toast.success("Session cancelled successfully");
 
-        
-        router.refresh();
+       
       }
 else{
   toast.error(data.message)

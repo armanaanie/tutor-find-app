@@ -22,9 +22,9 @@ const TutorsPage = async({searchParams}) => {
   
     return (
         <div className="w-11/12 mx-auto"><h1 className="text-center text-2xl my-5 font-bold">All Tutor</h1>
-        <div className="flex justify-between items-center my-7"><SearchTutor/><FilterByDate/></div><div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 my-7 place-items-center"><SearchTutor/><FilterByDate/></div><div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {
-                tutors.map(tutor=><div className="card bg-base-100  shadow-sm" key={tutor?._id}>
+                tutors.map((tutor)=>(<div className="card bg-base-100  shadow-sm" key={tutor?._id}>
   <figure className="h-48">
     <img
       src={tutor?.image}
@@ -40,7 +40,7 @@ const TutorsPage = async({searchParams}) => {
       <Link href={`/tutors/${tutor?._id}`} className="btn rounded-full bg-blue-500 text-white">Book Session</Link>
     </div>
   </div>
-</div>)
+</div>))
             }
             
         </div></div>

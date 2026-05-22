@@ -2,10 +2,12 @@
 import { authClient } from "@/lib/auth-client";
 
 import {Button, Description, FieldError, Form, Input, Label, TextField} from "@heroui/react";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
 const LoginFrom = () => {
+  const router = useRouter();
+
     const onSubmit=async(e)=>{
 e.preventDefault();
 const formData= new FormData(e.currentTarget);
@@ -21,7 +23,7 @@ const { data, error } = await authClient.signIn.email({
     if(data){
       
       toast.success("Succesfully login.")
-      redirect("/")
+       router.push("/");
     }
     if(error){
       toast.error(error.message)

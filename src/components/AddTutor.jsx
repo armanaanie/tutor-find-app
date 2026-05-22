@@ -6,11 +6,14 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { toast } from 'react-toastify';
 import { Button } from '@heroui/react';
 import { normalizeDate } from "@/utils/dateFormat";
+import { authClient } from '@/lib/auth-client';
 
 const AddTutor = () => {
     const onSubmit=async(e)=>{
   e.preventDefault()
-    const formData=new FormData(e.currentTarget)
+   const {data:tokenData}=await authClient.token();
+    console.log(tokenData)
+    const formData=new FormData(e.target)
     const tutor= Object.fromEntries(formData.entries())
     console.log(tutor)
     
@@ -24,9 +27,11 @@ sessionDate: normalizeDate(selectedDate),
     slot: Number(tutor.slot),
   };
 console.log(tutorData)
-    const res=await fetch("http://localhost:5000/tutors",{
+    const res=await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/tutors`,{
       method:"POST",
-      headers:{"content-type":"application/json"},
+      headers:{"content-type":"application/json",
+        authorization:`Bearer ${tokenData?.token}`
+      },
       body:JSON.stringify(tutorData)
     })
 

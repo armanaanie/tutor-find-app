@@ -27,11 +27,11 @@ const Footer = () => {
   </nav>
   
 </footer>
-<footer className="footer flex  bg-black text-white border-base-300 border-t px-10 py-5  items-center justify-between">
+<footer className="footer flex   flex-col md:flex-row  bg-black text-white border-base-300 border-t px-10 py-5  items-center justify-between">
  
    
    
-        <span className='text-xl font-extrabold '>Tutor-Find</span>
+         <h1 className="lg:text-xl text-lg font-extrabold">Tutorfind</h1>
       
        <p className=''>
      copyright © Providing reliable tech since 2022

@@ -11,13 +11,21 @@ const MyBookTutorpage = async () => {
   const session = await auth.api.getSession({
     headers: await headers(),
   });
-
+// const {token}= await auth.api.getToken({
+//   headers:await headers()
+// });
+// console.log(token)
   console.log(session, "My Booking page");
 
   const user = session?.user;
   console.log(user, "user from booking page");
 
-  const res = await fetch("http://localhost:5000/tutors");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/tutors`,{
+   
+    // headers:{
+    //   authorization:`Bearer ${token}`
+    // }
+  });
   const tutors = await res.json();
 
   return (

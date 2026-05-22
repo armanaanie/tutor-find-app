@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export default async function FeaturedTutor() {
-  const res= await fetch("http://localhost:5000/featured-tutors")
+  const res= await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/featured-tutors`)
 const tutors= await res.json()
 console.log(tutors)
     

@@ -20,11 +20,11 @@ const Banner = () => {
 
     <div className="absolute inset-0 flex items-center justify-center text-center text-white z-10 px-4">
       <div>
-        <h1 className="text-5xl font-bold">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
           Find Your Perfect Tutor
         </h1>
 
-        <p className="py-6 text-lg">
+        <p className="py-6 text-m lg:text-lg">
           Learn anytime from expert tutors.
         </p>
 
@@ -61,7 +61,7 @@ const Banner = () => {
 
     <div className="absolute inset-0 flex items-center justify-center text-center text-white z-10 px-4">
       <div>
-        <h1 className="text-5xl font-bold">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
           Learn From Expert Tutors
         </h1>
 
@@ -102,7 +102,7 @@ const Banner = () => {
 
     <div className="absolute inset-0 flex items-center justify-center text-center text-white z-10 px-4">
       <div>
-        <h1 className="text-5xl font-bold">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
           Start Learning Today
         </h1>
 

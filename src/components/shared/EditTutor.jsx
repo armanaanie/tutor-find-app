@@ -7,14 +7,17 @@ import { Button } from '@heroui/react';
 import { Modal, Surface} from "@heroui/react";
 import DatePicker from 'react-datepicker';
 import { useState } from 'react';
+import { authClient } from '@/lib/auth-client';
 
 
 
 export function EditTutor({tutor}) {
     
     const onSubmit=async(e)=>{
-     
-        const formData=new FormData(e.currentTarget)
+      e.preventDefault();
+     const {data:tokenData}=await authClient.token();
+      console.log(tokenData)
+        const formData=new FormData(e.target)
         const updatetutor= Object.fromEntries(formData.entries())
          const tutorData = {
         ...updatetutor,
@@ -26,11 +29,15 @@ export function EditTutor({tutor}) {
         slot: Number(updatetutor.slot),
       };
         console.log(tutorData)
-        const res=await fetch(`http://localhost:5000/tutors/${tutor._id}`,{
-          method:"PATCH",
-          headers:{"content-type":"application/json"},
-          body:JSON.stringify(tutorData)
-        })
+        const res=await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/tutors/${tutor._id}`,{
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${tokenData?.token}`,
+      },
+      body: JSON.stringify(tutorData),
+    }
+  );
         const data= await res.json();
          
     

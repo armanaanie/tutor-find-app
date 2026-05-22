@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import {AlertDialog, Button} from "@heroui/react";
 import { redirect } from "next/navigation";
 
@@ -9,11 +10,15 @@ import { toast } from "react-toastify";
 export function DeleteTutor({tutorId}) {
     
     const handleCancelTutor=async()=>{
+ const {data:tokenData}=await authClient.token();
+      console.log(tokenData)
+
         toast.error("You delete successfully.")
-        const res= await fetch(`http://localhost:5000/tutors/${tutorId}`,{
+        const res= await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/tutors/${tutorId}`,{
           method:"DELETE",
            headers:{
-            "content-type":"application/json"
+            "content-type":"application/json",
+            authorization:`Bearer ${tokenData?.token}`
            } 
         });
         const data=await res.json();

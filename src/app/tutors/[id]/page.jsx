@@ -7,7 +7,7 @@ export const metadata = {
 
 const TutorDetailsPage = async({params}) => {
     const {id}= await params;
-    const res = await fetch(`http://localhost:5000/tutors/${id}`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/tutors/${id}`)
     const tutor= await res.json()
     console.log(tutor)
    
@@ -20,13 +20,13 @@ const TutorDetailsPage = async({params}) => {
       alt="tutor image" className="w-full h-[400px] object-contain object-top p-3 " />
   </figure></div>
   <div className="card-body items-center">
-     <span className={`badge badge-sm ${tutor.subject==="ICT"?"bg-blue-200":tutor.subject==="English"?"bg-amber-200":tutor.subject==="Chemistry"?"bg-green-200":tutor.subject==="Mathematics"?"bg-red-200":tutor.subject==="Biology"?"bg-orange-200":"bg-purple-200"}`}>{tutor?.subject}</span>
+     <span className={`badge badge-sm ${tutor.subject==="ICT"?"bg-blue-200":tutor.subject==="English"?"bg-amber-400":tutor.subject==="Chemistry"?"bg-green-400":tutor.subject==="Mathematics"?"bg-red-400":tutor.subject==="Biology"?"bg-orange-400":"bg-purple-400"}`}>{tutor?.subject}</span>
     <h2 className="card-title">{tutor?.tutorname}</h2>
     <p><span className="font-bold">Institute and Experience:</span>{tutor?.institution},<span className="font-bold"> Location:</span>{tutor?.location}</p>
     <p><span className="font-bold">Hourly fee:</span>{tutor?.hourlyfee} , <span className="font-bold">Method:</span>{tutor?.method}</p>
     <p><span className="font-bold">Select day and time:</span>{tutor?.selectDayandTime}, <span className="font-bold">Slot:</span> {tutor?.slot}
     </p>
-   <button className="badge bg-amber-100">Session Date:{tutor.sessionDate}</button>
+   <button className="badge bg-green-300">Session Date:{tutor.sessionDate}</button>
    
     
     <div className="card-actions justify-end">
