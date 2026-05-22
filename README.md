@@ -2,7 +2,7 @@
 
 A full-stack web application that connects students with tutors for seamless online learning. Students can browse tutors, book sessions, and manage learning schedules, while tutors can manage profiles and sessions efficiently.
 
----
+
 
 ## 🚀 Features
 
