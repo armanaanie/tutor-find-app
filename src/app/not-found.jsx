@@ -10,7 +10,7 @@ export default function NotFound() {
       </p>
 
       <p className="text-gray-500 mt-2">
-        The page you are looking for doesn’t exist or has been moved.
+        The page you are looking for doesn’t exist or has been moved..
       </p>
 
       <Link
