@@ -59,7 +59,7 @@ export default function Testimonial() {
                 />
 
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900">
+                  <h3 className="text-xl font-bold ">
                     {testimonial.name}
                   </h3>
 
@@ -75,7 +75,7 @@ export default function Testimonial() {
                 ))}
               </div>
 
-              <p className="text-gray-700 leading-relaxed italic">
+              <p className=" leading-relaxed italic">
                 “{testimonial.review}”
               </p>
             </div>

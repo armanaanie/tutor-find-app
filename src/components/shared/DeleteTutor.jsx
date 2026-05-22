@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 export function DeleteTutor({tutorId}) {
     
     const handleCancelTutor=async()=>{
+        toast.error("You delete successfully.")
         const res= await fetch(`http://localhost:5000/tutors/${tutorId}`,{
           method:"DELETE",
            headers:{
@@ -17,14 +18,8 @@ export function DeleteTutor({tutorId}) {
         });
         const data=await res.json();
         console.log(data);
-if (data.success) {
 
-        toast.success("Tutor deleted successfully")
-        
-      }
-else{
-  toast.error(data.message)
-}
+
     
   };
   return (
@@ -48,7 +43,7 @@ else{
               <Button slot="close" variant="tertiary">
                 Back
               </Button>
-              <Button slot="close" variant="danger" onClick={handleCancelTutor}>
+              <Button  variant="danger" onClick={handleCancelTutor}>
                 Delete Tutor
               </Button>
             </AlertDialog.Footer>

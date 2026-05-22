@@ -6,6 +6,7 @@ import Footer from "@/components/shared/footer";
 
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "next-themes";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -22,10 +23,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html
-      lang="en"
+      lang="en" suppressHydrationWarning
       className={poppins.className}
     >
-      <body className="min-h-full flex flex-col"><main> <Navbar/>{children} <Footer/></main><ToastContainer/></body>
+      <body className="min-h-full flex flex-col"><ThemeProvider><main> <Navbar/>{children} <Footer/></main></ThemeProvider><ToastContainer/></body>
     </html>
   );
 }

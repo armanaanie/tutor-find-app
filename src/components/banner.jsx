@@ -11,7 +11,7 @@ const Banner = () => {
     className="carousel-item relative w-full h-[500px] bg-cover bg-center bg-no-repeat"
     style={{
       backgroundImage:
-        "url('https://plus.unsplash.com/premium_photo-1661903078140-b2f497f7bf02?q=80&w=1170&auto=format&fit=crop')",
+        "url('https://i.ibb.co.com/Q0xQZtV/premium-photo-1661903078140-b2f497f7bf02-q-80-w-1170-auto-format-fit-crop.jpg')",
     }}
   >
 
@@ -52,7 +52,7 @@ const Banner = () => {
     className="carousel-item relative w-full h-[500px] bg-cover bg-center bg-no-repeat"
     style={{
       backgroundImage:
-        "url('https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=1074&auto=format&fit=crop')",
+        "url('https://i.ibb.co.com/PdtvGWP/photo-1501504905252-473c47e087f8-q-80-w-1074-auto-format-fit-crop.jpg')",
     }}
   >
 
@@ -93,7 +93,7 @@ const Banner = () => {
     className="carousel-item relative w-full h-[500px] bg-cover bg-center bg-no-repeat"
     style={{
       backgroundImage:
-        "url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1171&auto=format&fit=crop')",
+        "url('https://i.ibb.co.com/jPcNFw1Q/photo-1522202176988-66273c2fd55f-q-80-w-1171-auto-format-fit-crop.jpg')",
     }}
   >
   
